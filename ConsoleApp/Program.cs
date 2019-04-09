@@ -135,12 +135,14 @@ namespace ConsoleApp
         {
             using (var context = new NinjaContext())
             {
+                // Eager loading
                 //var ninja = context.Ninjas.Include(n => n.EquipmentOwned)
                 //    .FirstOrDefault(n => n.Name.StartsWith("Kacy"));
-
+                
                 var ninja = context.Ninjas
                     .FirstOrDefault(n => n.Name.StartsWith("Kacy"));
 
+                // Explicit loading
                 context.Entry(ninja).Collection(n => n.EquipmentOwned).Load();
             }
         }

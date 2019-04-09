@@ -15,7 +15,9 @@ namespace NinjaDomain.Classes
         public bool ServedInWaiban { get; set; }
         public Clan Clan { get; set; }
         public int ClanId { get; set; }
-        public List<NinjaEquipment> EquipmentOwned { get; set; }
+
+        // virtual makes it a lazy loading - always loads
+        public virtual List<NinjaEquipment> EquipmentOwned { get; set; }
         public System.DateTime DateOfBirth { get; set; }
 
     }
